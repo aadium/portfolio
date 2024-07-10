@@ -8,6 +8,18 @@ import { useEffect, useState } from "react";
 
 function Introduction() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const studyYear = calculateStudyYear("2022-09-01");
+    const yearSuffix = studyYear === 1 ? "st" : studyYear === 2 ? "nd" : studyYear === 3 ? "rd" : "th";
+
+    function calculateStudyYear(startDate) {
+        const start = new Date(startDate);
+        const today = new Date();
+        let yearOfStudy = today.getFullYear() - start.getFullYear();
+        if (yearOfStudy > 5) {
+            yearOfStudy = 5;
+        }
+        return yearOfStudy;
+    }
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,7 +33,7 @@ function Introduction() {
 
     return (
         <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-4/6 mx-2">
-            <div className="h-full flex flex-col lg:w-1/2 bg-gray-900">
+            <div className="h-full flex flex-col lg:w-1/2 bg-gray-800">
                 {screenWidth > 1024 && (
                     <img
                         className="h-full w-full object-cover object-center"
@@ -29,7 +41,7 @@ function Introduction() {
                         alt="Aadi Umrani"
                     />
                 )}
-                <div className="flex flex-row bg-gray-900 my-4 mx-3 justify-evenly">
+                <div className="flex flex-row bg-gray-800 my-4 mx-3 justify-evenly">
                     <GitHubIcon
                         className="text-white hover:text-blue-300"
                         onClick={() => {
@@ -67,7 +79,7 @@ function Introduction() {
                     <div>
                         <h1 className="font-bold text-3xl">Hi, I am Aadi Umrani</h1>
                         <h4 className="font-semibold text-xl mt-4">
-                            I am a second-year student at the University of Waterloo studying Biomedical
+                            I am a {studyYear}<sup>{yearSuffix}</sup> year student at the University of Waterloo studying Biomedical
                             Engineering.
                         </h4>
                     </div>
