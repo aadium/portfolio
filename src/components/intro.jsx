@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 function Introduction() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -77,9 +77,10 @@ function Introduction() {
             <div className="w-full py-6 px-8 text-gray-800 flex flex-col justify-evenly">
                 <div className="h-full flex flex-col justify-evenly">
                     <div>
-                        <h1 className="font-bold text-3xl">Hi, I am Aadi Umrani</h1>
+                        <h1 className="font-bold text-gray-800 text-3xl">Hi, I am Aadi Umrani</h1>
                         <h4 className="font-semibold text-xl mt-4">
-                            I am a {studyYear}<sup>{yearSuffix}</sup> year student at the University of Waterloo studying Biomedical
+                            I am a {studyYear}<sup>{yearSuffix}</sup> year student at the University of Waterloo
+                            studying Biomedical
                             Engineering.
                         </h4>
                     </div>
@@ -87,14 +88,19 @@ function Introduction() {
                         My goal is to contribute to innovative projects that positively impact healthcare. I’m
                         particularly interested in areas such as medical device design, biomanufacturing, and
                         clinical engineering. Whether it’s creating cutting-edge diagnostic tools or improving
-                        patient care, I’m ready to dive in. I have a passion for full stack development,
+                        patient care, I’m ready to dive in.<br />I also have a passion for full stack development,
                         exploring technologies like Python, Java, HTML/CSS, and JavaScript frameworks. I enjoy
                         building web applications, handling databases, and ensuring seamless user experiences
                         from front-end to back-end.
                     </p>
                 </div>
                 <div className="flex flex-row space-x-6 mt-4 lg:mt-0">
-                    <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                    <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
+                       onClick={
+                           () => {
+                               window.location.href = "/#about";
+                           }
+                       }>
                         Explore this site
                     </p>
                     <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"

@@ -16,8 +16,8 @@ function About() {
     return (
         <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-4/5 mx-2">
             <div className="w-full py-12 px-8 text-gray-800 flex flex-col justify-evenly">
-                <h2 className="text-3xl font-bold">About Me</h2>
-                <div className="text-base mt-5 space-y-5">
+                <h2 className="text-3xl text-gray-800 font-bold">About Me</h2>
+                <div className="text-base mt-10 space-y-5">
                     <p>
                         As a biomedical engineering student, I bring a fresh perspective and eagerness to learn
                         to a
@@ -60,7 +60,7 @@ function About() {
                             <img className="mt-2"
                                  src="https://go-skill-icons.vercel.app/api/icons?i=python,cpp,arduino,dart,java,html,css,js"/>
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,nodejs,express,spring,tailwind,tensorflow,anaconda"/>
+                                 src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,nodejs,express,spring,tailwind,tensorflow"/>
                             <img className="mt-2"
                                  src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgres,supabase,mongodb,firebase,dynamodb"/>
                             <img className="mt-2"
