@@ -10,7 +10,7 @@ function Jobs() {
     };
 
     function replaceNewlines(description) {
-        const listItems = description.split(/\[newline\]/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
+        const listItems = description.split(/\[newline]/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
         return `<ul style="dot">${listItems}</ul>`;
     }
 
@@ -28,27 +28,47 @@ function Jobs() {
     });
     return (
         <div className="overflow-hidden rounded-xl mt-4 w-4/6 mx-2">
-            <h2 className="text-3xl text-gray-800 font-bold text-center">My Work Experiences</h2>
-            <div className="mt-5 flex bg-white rounded-lg w-full justify-evenly">
+            <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Work Experiences</h2>
+            <div className="mt-5 flex bg-gray-800 rounded-lg w-full justify-evenly">
                 {jobs.map((job) => (
-                    <button
-                        key={job.id}
-                        onClick={() => handleJobClick(job.id)}
-                        className="p-4 text-base font-bold text-gray-800 text-center"
-                    >
-                        {job.title}
-                    </button>
+                    (job.id === selectedJobId) ? (
+                        <button
+                            key={job.id}
+                            onClick={() => handleJobClick(job.id)}
+                            className="p-4 text-base font-bold text-white text-center"
+                        >
+                            {job.company}
+                        </button>
+                    ) : (
+                        <button
+                            key={job.id}
+                            onClick={() => handleJobClick(job.id)}
+                            className="p-4 text-base font-bold text-blue-300 text-center"
+                        >
+                            {job.company}
+                        </button>
+                    )
                 ))}
             </div>
             <div className="mt-8">
                 {jobs.filter(job => job.id === selectedJobId).map((job) => (
                     <div key={job.id}
                          className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-lg mt-4 mx-2">
-                        <div className="w-full py-8 px-10 text-gray-800 flex flex-col justify-evenly">
-                            <h2 className="text-2xl font-bold">{job.title}</h2>
+                        <div className="w-full py-6 px-10 text-gray-800 flex flex-col justify-evenly">
+                            <div className="flex flex-col md:flex-row w-full justify-between">
+                                <h2 className="text-2xl font-bold">{job.title}</h2>
+                                <div className="font-semibold text-base">{job.duration}</div>
+                            </div>
                             <div className="text-base mt-4 space-y-4">
-                                <p className="font-semibold">{job.company}</p>
+                                <div className="font-semibold hover:cursor-pointer hover:underline w-fit"
+                                     onClick={() => {
+                                         window.open(job.jobWebsite, "_blank");
+                                     }}>{job.company}</div>
                                 <p dangerouslySetInnerHTML={{__html: replaceNewlines(job.description)}}/>
+                            </div>
+                            <hr className="mt-3"/>
+                            <div className="mt-3 text-base font-semibold">
+                                Technologies used: {job.techStack.join(', ')}
                             </div>
                         </div>
                     </div>

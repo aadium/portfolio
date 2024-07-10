@@ -36,7 +36,7 @@ function Introduction() {
             <div className="h-full flex flex-col lg:w-1/2 bg-gray-800">
                 {screenWidth > 1024 && (
                     <img
-                        className="h-full w-full object-cover object-center"
+                        className="h-full object-center"
                         src={myImage}
                         alt="Aadi Umrani"
                     />
@@ -78,13 +78,13 @@ function Introduction() {
                 <div className="h-full flex flex-col justify-evenly">
                     <div>
                         <h1 className="font-bold text-gray-800 text-3xl">Hi, I am Aadi Umrani</h1>
-                        <h4 className="font-semibold text-xl mt-4">
+                        <h4 className="font-semibold text-lg my-4 lg:mt-6">
                             I am a {studyYear}<sup>{yearSuffix}</sup> year student at the University of Waterloo
                             studying Biomedical
                             Engineering.
                         </h4>
                     </div>
-                    <p className="text-base mt-4 lg:mt-0">
+                    <p className="text-base my-4 lg:mt-0">
                         My goal is to contribute to innovative projects that positively impact healthcare. I’m
                         particularly interested in areas such as medical device design, biomanufacturing, and
                         clinical engineering. Whether it’s creating cutting-edge diagnostic tools or improving
