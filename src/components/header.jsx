@@ -28,24 +28,24 @@ function Header() {
                                 className="text-white px-3 py-2 rounded-md text-base font-medium">
                             <CloseRoundedIcon />
                         </button>
-                        <a href="#"
+                        <a href="/#"
                            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Home</a>
-                        <a href="#about"
+                        <a href="/#about"
                            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">About</a>
-                        <a href="#jobs"
+                        <a href="/#jobs"
                            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                        <a href="#projects"
+                        <a href="/#projects"
                            className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Projects</a>
                     </div>
                 </div>
                 <div className="hidden md:flex ml-10 items-baseline space-x-4">
-                    <a href="#"
+                    <a href="/#"
                        className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Home</a>
-                    <a href="#about"
+                    <a href="/#about"
                        className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">About</a>
-                    <a href="#jobs"
+                    <a href="/#jobs"
                        className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                    <a href="#projects"
+                    <a href="/#projects"
                        className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">Projects</a>
                 </div>
             </div>
