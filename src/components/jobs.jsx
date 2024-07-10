@@ -14,6 +14,18 @@ function Jobs() {
         return `<ul style="dot">${listItems}</ul>`;
     }
 
+    function formatJobDate(startDate, endDate) {
+        const options = { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' };
+
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        const formattedStart = start.toLocaleDateString('en-US', options);
+        const formattedEnd = end.toLocaleDateString('en-US', options);
+
+        return `${formattedStart} - ${formattedEnd}`;
+    }
+
     useEffect(() => {
         const fetchJobs = async () => {
             const {data, error} = await supabase.from('jobs').select('*');
@@ -43,7 +55,7 @@ function Jobs() {
                         <button
                             key={job.id}
                             onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-blue-300 text-center"
+                            className="p-4 text-base font-bold text-gray-300 text-center"
                         >
                             {job.company}
                         </button>
@@ -57,7 +69,9 @@ function Jobs() {
                         <div className="w-full py-6 px-10 text-gray-800 flex flex-col justify-evenly">
                             <div className="flex flex-col md:flex-row w-full justify-between">
                                 <h2 className="text-2xl font-bold">{job.title}</h2>
-                                <div className="font-semibold text-base">{job.duration}</div>
+                                <div className="font-semibold text-base">
+                                    {formatJobDate(job.startDate, job.endDate)}
+                                </div>
                             </div>
                             <div className="text-base mt-4 space-y-4">
                                 <div className="font-semibold hover:cursor-pointer hover:underline w-fit"
