@@ -55,7 +55,7 @@ function Jobs() {
                         <button
                             key={job.id}
                             onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-gray-300 text-center"
+                            className="p-4 text-base font-bold text-gray-500 text-center"
                         >
                             {job.company}
                         </button>

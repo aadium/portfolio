@@ -1,9 +1,8 @@
 import Introduction from "./components/intro.jsx";
 import About from "./components/about.jsx";
 import Header from "./components/header.jsx";
-import supabase from "./utils/supabase_init.js";
-import {useEffect, useState} from "react";
 import Jobs from "./components/jobs.jsx";
+import Projects from "./components/projects.jsx";
 
 export default function App() {
     return (
@@ -23,7 +22,7 @@ export default function App() {
             </div>
             <a name="projects"/>
             <div className="min-h-screen flex text-3xl w-full flex-1 flex-col items-center justify-center">
-                Hello World
+                <Projects />
             </div>
         </div>
     )
