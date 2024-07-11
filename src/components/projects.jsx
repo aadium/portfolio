@@ -31,16 +31,21 @@ function Projects() {
                             <div className="flex flex-col md:flex-row justify-between">
                                 <h2 className="text-2xl font-bold">{project.name}</h2>
                             </div>
-                            <div className="text-base mt-4 space-y-4">
-                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}} />
+                            <div className="mt-3 text-base">
+                                {project.category}
                             </div>
-                            <button className="my-1 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2">
-                                <a href={project.link} target="_blank" rel="noreferrer">View {project.linkType}</a>
-                            </button>
-                            <hr className="mt-3" />
-                            <div className="mt-3 text-base font-semibold">
+                            <hr className="mt-3"/>
+                            <div className="mt-1 text-base font-semibold">
                                 Tech Stack: {project.techStack.join(', ')}
                             </div>
+                            <hr className="mt-1"/>
+                            <div className="text-base mt-4 space-y-4">
+                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}}/>
+                            </div>
+                            <button
+                                className="my-1 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2">
+                                <a href={project.link} target="_blank" rel="noreferrer">View {project.linkType}</a>
+                            </button>
                         </div>
                     </div>
                 ))}

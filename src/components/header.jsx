@@ -9,7 +9,7 @@ function Header() {
         <nav className="md:bg-gray-800 lg:bg-gray-800 fixed top-0 z-10 w-full drop-shadow-xl">
             <div className="mx-auto px-5 flex justify-between items-center h-16">
                 <div className="flex-shrink-0 hidden md:block">
-                    <h2 className="cursor-pointer text-white hover:text-gray-500 font-bold text-2xl" onClick={() => {
+                    <h2 className="cursor-pointer text-white font-bold text-2xl" onClick={() => {
                         window.location.href = "/";
                     }}>
                         Aadi Umrani
@@ -29,28 +29,28 @@ function Header() {
                             <CloseRoundedIcon />
                         </button>
                         <a href="/#"
-                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                           className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
                         <a href="/#about"
-                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">About</a>
+                           className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
                         <a href="/#jobs"
-                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                           className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
                         <a href="/#projects"
-                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                           className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
                         <a href="/#chat"
-                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Chat</a>
+                           className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
                     </div>
                 </div>
                 <div className="hidden md:flex ml-10 items-baseline space-x-4">
                     <a href="/#"
-                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                       className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
                     <a href="/#about"
-                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">About</a>
+                       className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
                     <a href="/#jobs"
-                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                       className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
                     <a href="/#projects"
-                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                       className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
                     <a href="/#chat"
-                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Chat</a>
+                       className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
                 </div>
             </div>
         </nav>
