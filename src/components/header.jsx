@@ -36,6 +36,8 @@ function Header() {
                            className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Experience</a>
                         <a href="/#projects"
                            className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                        <a href="/#chat"
+                           className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Chat</a>
                     </div>
                 </div>
                 <div className="hidden md:flex ml-10 items-baseline space-x-4">
@@ -47,6 +49,8 @@ function Header() {
                        className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Experience</a>
                     <a href="/#projects"
                        className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                    <a href="/#chat"
+                       className="text-white hover:text-gray-500 px-3 py-2 rounded-md text-base font-medium">Chat</a>
                 </div>
             </div>
         </nav>
