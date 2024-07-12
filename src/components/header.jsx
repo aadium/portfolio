@@ -23,7 +23,7 @@ function Header() {
                 </div>
                 <div
                     className={`absolute top-0 right-0 transform ${
-                        isMenuOpen ? 'translate-x-full' : '-translate-x-0'
+                        isMenuOpen ? '-translate-x-0' : 'translate-x-full'
                     } bg-gray-800 md:hidden transition-transform duration-300 ease-in-out`}>
                     <div className="flex flex-col w-full items-center space-y-4 p-4">
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)}
