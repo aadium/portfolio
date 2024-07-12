@@ -32,7 +32,7 @@ function Introduction() {
     });
 
     return (
-        <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-4/6 mx-2">
+        <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-full mx-2 md:w-4/6">
             <div className="flex flex-col bg-gray-800">
                 {screenWidth > 1024 && (
                     <img

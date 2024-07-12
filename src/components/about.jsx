@@ -14,7 +14,7 @@ function About() {
     });
 
     return (
-        <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-4/5 mx-2">
+        <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-full md:w-4/5 mx-2">
             <div className="w-full py-12 px-8 text-gray-800 flex flex-col justify-evenly">
                 <h2 className="text-3xl text-gray-800 font-bold">About Me</h2>
                 <div className="text-base mt-10 space-y-5">

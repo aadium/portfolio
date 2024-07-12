@@ -10,8 +10,7 @@ export default function App() {
     return (
         <div>
             <Header/>
-            <div
-                className="min-h-screen drop-shadow-2xl text-3xl flex w-full flex-1 flex-col items-center justify-center">
+            <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
                 <Introduction/>
             </div>
             <a name="about"/>

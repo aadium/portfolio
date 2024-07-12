@@ -39,7 +39,7 @@ function Jobs() {
         fetchJobs();
     });
     return (
-        <div className="overflow-hidden rounded-xl mt-4 w-4/6 mx-2">
+        <div className="overflow-hidden rounded-xl mt-4 w-full md:w-4/6 mx-2">
             <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Work Experiences</h2>
             <div className="mt-5 flex bg-gray-800 rounded-lg w-full justify-evenly">
                 {jobs.map((job) => (

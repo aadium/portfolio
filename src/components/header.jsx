@@ -6,9 +6,9 @@ function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="md:bg-gray-800 lg:bg-gray-800 fixed top-0 z-10 w-full drop-shadow-xl">
+        <nav className="bg-gray-800 fixed top-0 z-10 w-full drop-shadow-xl">
             <div className="mx-auto px-5 flex justify-between items-center h-16">
-                <div className="flex-shrink-0 hidden md:block">
+                <div className="flex-shrink-0">
                     <h2 className="cursor-pointer text-white font-bold text-2xl" onClick={() => {
                         window.location.href = "/";
                     }}>
@@ -22,8 +22,10 @@ function Header() {
                     </button>
                 </div>
                 <div
-                    className={`absolute top-0 left-0 transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-800 md:hidden transition-transform duration-300 ease-in-out`}>
-                    <div className="flex flex-col items-center space-y-4 py-4 px-4">
+                    className={`absolute top-0 right-0 transform ${
+                        isMenuOpen ? 'translate-x-full' : '-translate-x-0'
+                    } bg-gray-800 md:hidden transition-transform duration-300 ease-in-out`}>
+                    <div className="flex flex-col w-full items-center space-y-4 p-4">
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)}
                                 className="text-white px-3 py-2 rounded-md text-base font-medium">
                             <CloseRoundedIcon />

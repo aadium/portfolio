@@ -10,7 +10,7 @@ function Chat() {
     }
 
     return (
-        <div className="flex flex-col lg:flex-row overflow-hidden bg-white text-center rounded-xl mt-4 w-4/6 mx-2">
+        <div className="flex flex-col lg:flex-row overflow-hidden bg-white text-center rounded-xl mt-4 w-full md:w-4/6 mx-2">
             <div className="w-full py-8 px-8 text-gray-800 flex flex-col justify-evenly">
                 <h2 className="text-3xl text-gray-800 font-bold">Send me a message</h2>
                 <p className="text-base mt-4">I am open to freelance opportunities, full-time roles, and any other queries you might have.</p>
