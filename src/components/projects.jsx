@@ -20,7 +20,7 @@ function Projects() {
             }
         }
         fetchProjects();
-    });
+    }, []);
     return (
         <div className="overflow-hidden rounded-xl mt-4 mx-2">
             <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Projects</h2>
