@@ -27,13 +27,17 @@ function Jobs() {
     }
 
     useEffect(() => {
+        const setJobId = async (jobs) => {
+            const jobsLength = jobs.length;
+            setSelectedJobId(jobsLength);
+        }
         const fetchJobs = async () => {
             const {data, error} = await supabase.from('jobs').select('*');
             if (error) {
                 console.error(error);
             } else {
-                const sortedJobs = data.sort((b, a) => a.id - b.id);
-                setJobs(sortedJobs);
+                setJobs(data);
+                await setJobId(data);
             }
         }
         fetchJobs();
