@@ -43,31 +43,31 @@ function Introduction() {
                 )}
                 <div className="flex flex-row bg-gray-800 my-4 mx-3 justify-evenly">
                     <GitHubIcon
-                        className="text-white hover:cursor-pointer"
+                        className="text-white hover:cursor-pointer hover:text-orange-400"
                         onClick={() => {
                             window.open("https://github.com/aadium", "_blank");
                         }}
                     />
                     <LinkedInIcon
-                        className="text-white hover:cursor-pointer"
+                        className="text-white hover:cursor-pointer hover:text-blue-400"
                         onClick={() => {
                             window.open("https://www.linkedin.com/in/aadi-umrani/", "_blank");
                         }}
                     />
                     <InstagramIcon
-                        className="text-white hover:cursor-pointer"
+                        className="text-white hover:cursor-pointer hover:text-rose-400"
                         onClick={() => {
                             window.open("https://www.instagram.com/aadixum/", "_blank");
                         }}
                     />
                     <FacebookIcon
-                        className="text-white hover:cursor-pointer"
+                        className="text-white hover:cursor-pointer hover:text-blue-400"
                         onClick={() => {
                             window.open("https://www.facebook.com/aadxxum.2004/", "_blank");
                         }}
                     />
                     <XIcon
-                        className="text-white hover:cursor-pointer"
+                        className="text-white hover:cursor-pointer hover:text-slate-400"
                         onClick={() => {
                             window.open("https://twitter.com/um_aadi", "_blank");
                         }}
