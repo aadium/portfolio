@@ -43,7 +43,7 @@ function Projects() {
                                 <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}}/>
                             </div>
                             <button
-                                className="my-1 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2">
+                                className="my-1 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800">
                                 <a href={project.link} target="_blank" rel="noreferrer">View {project.linkType}</a>
                             </button>
                         </div>

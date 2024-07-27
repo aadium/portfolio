@@ -23,7 +23,7 @@ function Chat() {
                     <input type="text" placeholder="Name" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <input type="email" placeholder="Email" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <textarea placeholder="Message" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-                    <button type="submit" className="w-full text-base rounded-lg text-white font-semibold bg-gray-800 px-4 py-2">Send</button>
+                    <button type="submit" className="w-full text-base rounded-lg text-white font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800">Send</button>
                 </form>
             </div>
         </div>
