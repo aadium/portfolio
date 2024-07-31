@@ -45,7 +45,7 @@ function About() {
                             <img className="mt-2"
                                  src="https://go-skill-icons.vercel.app/api/icons?i=python,cpp,arduino,dart,java,html,css,js"/>
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,nodejs,express,spring,tailwind,tensorflow"/>
+                                 src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,next,nodejs,express,spring,tailwind,tensorflow"/>
                             <img className="mt-2"
                                  src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgres,supabase,mongodb,firebase,dynamodb"/>
                             <img className="mt-2"
