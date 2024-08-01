@@ -43,13 +43,13 @@ function About() {
                         }
                         <div className="flex flex-col items-center justify-evenly space-y-5">
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=python,cpp,arduino,dart,java,html,css,js"/>
+                                src="https://go-skill-icons.vercel.app/api/icons?i=python,cpp,arduino,dart,java,html,css,js" />
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,next,nodejs,express,spring,tailwind,tensorflow"/>
+                                src="https://go-skill-icons.vercel.app/api/icons?i=flutter,react,next,nodejs,express,spring,tailwind,tensorflow" />
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgres,supabase,mongodb,firebase,dynamodb"/>
+                                src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgres,supabase,mongodb,firebase,dynamodb" />
                             <img className="mt-2"
-                                 src="https://go-skill-icons.vercel.app/api/icons?i=aws,azure,gcp,vercel,netlify"/>
+                                src="https://go-skill-icons.vercel.app/api/icons?i=aws,azure,gcp,vercel,netlify" />
                         </div>
                     </div>
                 </div>

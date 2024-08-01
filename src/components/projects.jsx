@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import supabase from "../utils/supabase_init.js";
 
 function Projects() {
@@ -11,7 +11,7 @@ function Projects() {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const {data, error} = await supabase.from('projects').select('*');
+            const { data, error } = await supabase.from('projects').select('*');
             if (error) {
                 console.error(error);
             } else {
@@ -34,13 +34,13 @@ function Projects() {
                             <div className="mt-3 text-base">
                                 {project.category}
                             </div>
-                            <hr className="mt-3"/>
+                            <hr className="mt-3" />
                             <div className="mt-1 text-base font-semibold">
                                 Tech Stack: {project.techStack.join(', ')}
                             </div>
-                            <hr className="mt-1"/>
+                            <hr className="mt-1" />
                             <div className="text-base mt-4 space-y-4">
-                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}}/>
+                                <p dangerouslySetInnerHTML={{ __html: replaceNewlines(project.description) }} />
                             </div>
                             <button
                                 className="my-1 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800">

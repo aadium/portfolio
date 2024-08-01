@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import { useState } from 'react';
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,42 +17,41 @@ function Header() {
                 </div>
                 <div className="md:hidden">
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="text-white px-4 py-3 rounded-full text-base font-medium bg-gray-800">
+                        className="text-white px-4 py-3 rounded-full text-base font-medium bg-gray-800">
                         <MenuRoundedIcon />
                     </button>
                 </div>
                 <div
-                    className={`absolute top-0 right-0 transform ${
-                        isMenuOpen ? '-translate-x-0' : 'translate-x-full'
-                    } bg-gray-800 md:hidden transition-transform duration-300 ease-in-out`}>
+                    className={`absolute top-0 right-0 transform ${isMenuOpen ? '-translate-x-0' : 'translate-x-full'
+                        } bg-gray-800 md:hidden transition-transform duration-300 ease-in-out`}>
                     <div className="flex flex-col w-full items-center space-y-4 p-4">
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="text-white px-3 py-2 rounded-md text-base font-medium">
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">
                             <CloseRoundedIcon />
                         </button>
                         <a href="/#"
-                           className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
                         <a href="/#about"
-                           className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
                         <a href="/#jobs"
-                           className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
                         <a href="/#projects"
-                           className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
                         <a href="/#chat"
-                           className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
+                            className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
                     </div>
                 </div>
                 <div className="hidden md:flex ml-10 items-baseline space-x-4">
                     <a href="/#"
-                       className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+                        className="text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
                     <a href="/#about"
-                       className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                        className="text-white px-3 py-2 rounded-md text-base font-medium">About</a>
                     <a href="/#jobs"
-                       className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                        className="text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
                     <a href="/#projects"
-                       className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                        className="text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
                     <a href="/#chat"
-                       className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
+                        className="text-white px-3 py-2 rounded-md text-base font-medium">Chat</a>
                 </div>
             </div>
         </nav>

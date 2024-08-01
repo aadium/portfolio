@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import supabase from "../utils/supabase_init.js";
 
 function Jobs() {
@@ -32,7 +32,7 @@ function Jobs() {
             setSelectedJobId(jobsLength);
         }
         const fetchJobs = async () => {
-            const {data, error} = await supabase.from('jobs').select('*');
+            const { data, error } = await supabase.from('jobs').select('*');
             if (error) {
                 console.error(error);
             } else {
@@ -69,7 +69,7 @@ function Jobs() {
             <div className="mt-8">
                 {jobs.filter(job => job.id === selectedJobId).map((job) => (
                     <div key={job.id}
-                         className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-lg mt-4 mx-2">
+                        className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-lg mt-4 mx-2">
                         <div className="w-full py-6 px-10 text-gray-800 flex flex-col justify-evenly">
                             <div className="flex flex-col md:flex-row w-full justify-between">
                                 <h2 className="text-2xl font-bold">{job.title}</h2>
@@ -79,12 +79,12 @@ function Jobs() {
                             </div>
                             <div className="text-base mt-4 space-y-4">
                                 <div className="font-semibold hover:cursor-pointer hover:underline w-fit"
-                                     onClick={() => {
-                                         window.open(job.jobWebsite, "_blank");
-                                     }}>{job.company}</div>
-                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(job.description)}}/>
+                                    onClick={() => {
+                                        window.open(job.jobWebsite, "_blank");
+                                    }}>{job.company}</div>
+                                <p dangerouslySetInnerHTML={{ __html: replaceNewlines(job.description) }} />
                             </div>
-                            <hr className="mt-3"/>
+                            <hr className="mt-3" />
                             <div className="mt-3 text-base font-semibold">
                                 Technologies used: {job.techStack.join(', ')}
                             </div>

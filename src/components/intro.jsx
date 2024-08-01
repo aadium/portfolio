@@ -1,10 +1,10 @@
-import myImage from '../assets/myImage.jpg'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import myImage from '../assets/myImage.jpg';
 
 function Introduction() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -96,19 +96,19 @@ function Introduction() {
                 </div>
                 <div className="flex flex-row space-x-6 mt-4 lg:mt-0">
                     <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
-                       onClick={
-                           () => {
-                               window.location.href = "/#about";
-                           }
-                       }>
+                        onClick={
+                            () => {
+                                window.location.href = "/#about";
+                            }
+                        }>
                         Explore this site
                     </p>
                     <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
-                       onClick={
-                           () => {
-                               window.open("https://lbiwfynxcgjkaxaoirql.supabase.co/storage/v1/object/public/documents/resume.pdf", "_blank");
-                           }
-                       }>
+                        onClick={
+                            () => {
+                                window.open("https://lbiwfynxcgjkaxaoirql.supabase.co/storage/v1/object/public/documents/resume.pdf", "_blank");
+                            }
+                        }>
                         View my resume
                     </p>
                 </div>
