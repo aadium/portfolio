@@ -1,11 +1,42 @@
+import emailjs from 'emailjs-com';
+import { useState } from 'react';
+
 function Chat() {
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const [loading, setLoading] = useState(false);
+
     function sendEmail() {
+        setLoading(true);
         const name = document.querySelector('input[type="text"]').value;
         const email = document.querySelector('input[type="email"]').value;
         const message = document.querySelector('textarea').value;
 
-        if (name && email && message) {
-            window.open(`mailto:aadi.fall22@gmail.com?subject=Message from ${name}&body=${message}`);
+        try {
+            if (name && email && message) {
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                };
+    
+                emailjs.send(serviceID, templateID, templateParams, publicKey)
+                    .then((response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+
+                alert('Message sent successfully!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again later.');
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -23,7 +54,11 @@ function Chat() {
                     <input type="text" placeholder="Name" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <input type="email" placeholder="Email" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <textarea placeholder="Message" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-                    <button type="submit" className="w-full text-base rounded-lg text-white font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800">Send</button>
+                    <button type="submit" className="w-full text-base rounded-lg text-white font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800" disabled={loading}>
+                        {
+                            loading ? 'Sending...' : 'Send'
+                        }
+                    </button>
                 </form>
             </div>
         </div>
