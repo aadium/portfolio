@@ -1,6 +1,7 @@
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useState } from 'react';
+import myHeaderImage from '../assets/myHeaderImage.jpg';
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,8 +9,13 @@ function Header() {
     return (
         <nav className="bg-gray-800 fixed top-0 z-10 w-full drop-shadow-xl">
             <div className="mx-auto px-5 flex justify-between items-center h-16">
-                <div className="flex-shrink-0">
-                    <h2 className="cursor-pointer text-white font-bold text-2xl" onClick={() => {
+                <div className="flex-shrink-0 flex flex-row items-center">
+                    <img
+                        className="h-10 w-10 rounded-full border-2 border-white lg:hidden"
+                        src={myHeaderImage}
+                        alt="Aadi Umrani"
+                    />
+                    <h2 className="cursor-pointer text-white font-bold text-2xl ml-3" onClick={() => {
                         window.location.href = "/";
                     }}>
                         Aadi Umrani
