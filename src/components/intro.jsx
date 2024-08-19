@@ -103,14 +103,6 @@ function Introduction() {
                         }>
                         Explore this site
                     </p>
-                    <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
-                        onClick={
-                            () => {
-                                window.open("https://lbiwfynxcgjkaxaoirql.supabase.co/storage/v1/object/public/documents/resume.pdf", "_blank");
-                            }
-                        }>
-                        View my resume
-                    </p>
                 </div>
             </div>
         </div>
