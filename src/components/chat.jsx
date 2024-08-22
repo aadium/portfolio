@@ -1,5 +1,7 @@
 import emailjs from 'emailjs-com';
 import { useState } from 'react';
+import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 function Chat() {
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -54,11 +56,33 @@ function Chat() {
                     <input type="text" placeholder="Name" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <input type="email" placeholder="Email" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <textarea placeholder="Message" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-                    <button type="submit" className="w-full text-base rounded-lg text-white font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800" disabled={loading}>
-                        {
-                            loading ? 'Sending...' : 'Send'
-                        }
-                    </button>
+                    <div className='flex flex-row w-full space-x-4'>
+                        <button type="submit" className="w-full text-lg rounded-lg text-white font-semibold bg-red-800 px-4 py-3 hover:bg-transparent hover:text-red-800 hover:ring-inset hover:ring-2 ring-red-800 transition duration-300 flex items-center justify-center" onClick={
+                            (e) => {
+                                e.preventDefault();
+                                document.querySelectorAll('input').forEach(input => input.value = '');
+                                document.querySelector('textarea').value = '';
+                            }
+                        }>
+                            <ClearRoundedIcon className='mr-2' />
+                            Clear
+                        </button>
+                        <button type="submit" className="w-full text-lg rounded-lg text-white font-semibold bg-gray-800 px-4 py-3 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800 transition duration-300 flex items-center justify-center" disabled={loading}>
+                            {
+                                loading ? (
+                                    <>
+
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send
+                                        <SendRoundedIcon className='ml-2' />
+                                    </>
+                                )
+                            }
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
