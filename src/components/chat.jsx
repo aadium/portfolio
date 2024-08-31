@@ -41,7 +41,6 @@ function Chat() {
             setLoading(false);
         }
     }
-
     return (
         <div className="flex flex-col lg:flex-row overflow-hidden bg-white text-center rounded-xl mt-4 w-full md:w-4/6 mx-2">
             <div className="w-full py-8 px-8 text-gray-800 flex flex-col justify-evenly">
