@@ -51,7 +51,7 @@ function About() {
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row overflow-hidden bg-gray-800">
+            <div className="flex flex-col md:flex-row overflow-hidden bg-gray-800 border-t-2 border-rose-600 lg:border-0">
                 <div
                     className="flex flex-col md:flex-row overflow-hidden bg-gray-800 w-fit mx-2">
                     <div className="w-full py-6 px-6 text-gray-800 flex flex-row lg:flex-col justify-evenly">

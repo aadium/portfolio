@@ -74,8 +74,8 @@ function Introduction() {
                     />
                 </div>
             </div>
-            <div className="w-full py-6 px-8 text-gray-800 flex flex-col justify-evenly">
-                <div className="h-full flex flex-col justify-evenly">
+            <div className="w-full text-gray-800 flex flex-col justify-evenly">
+                <div className="h-full flex flex-col justify-evenly px-8 mt-8 lg:mt-0">
                     <div>
                         <h1 className="font-bold text-gray-800 text-3xl">Hi, I am Aadi Umrani</h1>
                         <h4 className="font-semibold text-lg my-2 text-rose-600 lg:mt-6">
@@ -92,8 +92,16 @@ function Introduction() {
                         from front-end to back-end.
                     </p>
                 </div>
-                <div className="flex flex-row space-x-6 mt-4 lg:mt-0">
-                    <p className="text-sm text-rose-600 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
+                <div className="flex flex-row mt-4 lg:mt-0 w-full">
+                    <p className="text-base text-white uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer bg-rose-600 px-6 py-4 w-4/6 border-t-2 border-rose-600 text-center"
+                        onClick={
+                            () => {
+                                window.location.href = "/#chat";
+                            }
+                        }>
+                        Hire Me
+                    </p>
+                    <p className="text-base text-white uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer bg-gray-800 px-6 py-4 w-4/5 border-t-2 border-rose-600 text-center"
                         onClick={
                             () => {
                                 window.location.href = "/#about";
