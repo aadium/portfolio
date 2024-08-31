@@ -51,7 +51,7 @@ function Jobs() {
                         <button
                             key={job.id}
                             onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-white text-center"
+                            className="p-4 text-base font-bold text-rose-300 text-center border-b-4 border-rose-500"
                         >
                             {job.company}
                         </button>
@@ -59,7 +59,7 @@ function Jobs() {
                         <button
                             key={job.id}
                             onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-gray-500 text-center"
+                            className="p-4 text-base font-bold text-white text-center border-b-4 border-gray-800"
                         >
                             {job.company}
                         </button>
@@ -73,20 +73,20 @@ function Jobs() {
                         <div className="w-full py-6 px-10 text-gray-800 flex flex-col justify-evenly">
                             <div className="flex flex-col md:flex-row w-full justify-between">
                                 <h2 className="text-2xl font-bold">{job.title}</h2>
-                                <div className="font-semibold text-base">
+                                <div className="font-semibold text-base text-rose-600">
                                     {formatJobDate(job.startDate, job.endDate)}
                                 </div>
                             </div>
                             <div className="text-base mt-4 space-y-4">
-                                <div className="font-semibold hover:cursor-pointer hover:underline w-fit"
+                                <div className="font-semibold hover:cursor-pointer hover:underline w-fit text-rose-600"
                                     onClick={() => {
                                         window.open(job.jobWebsite, "_blank");
                                     }}>{job.company}</div>
                                 <p dangerouslySetInnerHTML={{ __html: replaceNewlines(job.description) }} />
                             </div>
-                            <hr className="mt-3" />
+                            <hr className="mt-3 border border-rose-200" />
                             <div className="mt-3 text-base font-semibold">
-                                Technologies used: {job.techStack.join(', ')}
+                                {job.techStack.join(', ')}
                             </div>
                         </div>
                     </div>

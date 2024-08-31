@@ -33,23 +33,23 @@ function Introduction() {
 
     return (
         <div className="flex flex-col lg:flex-row overflow-hidden bg-white rounded-xl mt-4 w-full mx-2 md:w-4/6">
-            <div className="flex flex-col bg-gray-800">
+            <div className="flex flex-col bg-gray-800 border-b-2 border-rose-600 lg:border-0">
                 {screenWidth > 1024 && (
                     <img
-                        className="h-full object-center"
+                        className="h-full object-center border-b-2 border-rose-600"
                         src={myImage}
                         alt="Aadi Umrani"
                     />
                 )}
                 <div className="flex flex-row bg-gray-800 my-4 mx-3 justify-evenly">
                     <GitHubIcon
-                        className="text-white hover:cursor-pointer hover:text-orange-400"
+                        className="text-white hover:cursor-pointer hover:text-rose-400"
                         onClick={() => {
                             window.open("https://github.com/aadium", "_blank");
                         }}
                     />
                     <LinkedInIcon
-                        className="text-white hover:cursor-pointer hover:text-blue-400"
+                        className="text-white hover:cursor-pointer hover:text-rose-400"
                         onClick={() => {
                             window.open("https://www.linkedin.com/in/aadi-umrani/", "_blank");
                         }}
@@ -61,13 +61,13 @@ function Introduction() {
                         }}
                     />
                     <FacebookIcon
-                        className="text-white hover:cursor-pointer hover:text-blue-400"
+                        className="text-white hover:cursor-pointer hover:text-rose-400"
                         onClick={() => {
                             window.open("https://www.facebook.com/aadxxum.2004/", "_blank");
                         }}
                     />
                     <XIcon
-                        className="text-white hover:cursor-pointer hover:text-slate-400"
+                        className="text-white hover:cursor-pointer hover:text-rose-400"
                         onClick={() => {
                             window.open("https://twitter.com/um_aadi", "_blank");
                         }}
@@ -78,10 +78,8 @@ function Introduction() {
                 <div className="h-full flex flex-col justify-evenly">
                     <div>
                         <h1 className="font-bold text-gray-800 text-3xl">Hi, I am Aadi Umrani</h1>
-                        <h4 className="font-semibold text-lg my-4 lg:mt-6">
-                            I am a {studyYear}<sup>{yearSuffix}</sup> year student at the University of Waterloo
-                            studying Biomedical
-                            Engineering.
+                        <h4 className="font-semibold text-lg my-2 text-rose-600 lg:mt-6">
+                            I am a {studyYear}<sup>{yearSuffix}</sup> year Biomedical Engineering student at the University of Waterloo
                         </h4>
                     </div>
                     <p className="text-base my-4 lg:mt-0">
@@ -95,7 +93,7 @@ function Introduction() {
                     </p>
                 </div>
                 <div className="flex flex-row space-x-6 mt-4 lg:mt-0">
-                    <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
+                    <p className="text-sm text-rose-600 uppercase tracking-wide font-semibold mt-2 hover:cursor-pointer hover:underline"
                         onClick={
                             () => {
                                 window.location.href = "/#about";
