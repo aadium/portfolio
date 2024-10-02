@@ -18,7 +18,7 @@ function About() {
             <div className="w-full py-12 px-8 text-gray-800 flex flex-col justify-evenly">
                 <h2 className="text-3xl text-gray-800 font-bold">About Me</h2>
                 <h4 className="font-semibold text-lg my-4 text-rose-600 lg:mt-6">
-                    I am a student of Biomedical Engineering
+                    I am a Biomedical Engineering student
                 </h4>
                 <div className="text-base mt-4 space-y-5">
                     <p>

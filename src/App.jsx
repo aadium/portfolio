@@ -5,6 +5,7 @@ import Jobs from "./components/jobs.jsx";
 import Projects from "./components/projects.jsx";
 import Footer from "./components/footer.jsx";
 import Chat from "./components/chat.jsx";
+import Chatbot from "./components/chatbot.jsx";
 
 export default function App() {
     return (
@@ -29,6 +30,7 @@ export default function App() {
             <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
                 <Chat/>
             </div>
+                <Chatbot/>
             <div>
                 <Footer/>
             </div>
