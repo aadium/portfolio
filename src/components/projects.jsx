@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import supabase from "../utils/supabase_init.js";
+import Papa from 'papaparse';
 
 function Projects() {
     const [projects, setProjects] = useState([]);
@@ -9,14 +9,31 @@ function Projects() {
         return `<ul style="dot">${listItems}</ul>`;
     }
 
+    const fetchProjectsFromCSV = async () => {
+        return new Promise((resolve, reject) => {
+            Papa.parse('/data/projects_rows.csv', {
+                download: true,
+                header: true,
+                complete: (results) => {
+                    resolve(results.data);
+                },
+                error: (error) => {
+                    reject(error);
+                }
+            });
+        });
+    };
+
     useEffect(() => {
         const fetchProjects = async () => {
-            const {data, error} = await supabase.from('projects').select('*');
-            if (error) {
-                console.error(error);
-            } else {
-                const sortedProjects = data.sort((b, a) => a.id - b.id);
-                setProjects(sortedProjects);
+            try {
+                const data = await fetchProjectsFromCSV();
+                setProjects(data);
+                if (data.length > 0) {
+                    setSelectedJobId(data[0].id);
+                }
+            } catch (error) {
+                console.error('Error fetching projects from CSV:', error);
             }
         }
         fetchProjects();
@@ -38,7 +55,7 @@ function Projects() {
                             </div>
                             <hr className="mt-3 border border-rose-100"/>
                             <div className="mt-1 text-base font-semibold">
-                                {project.techStack.join(', ')}
+                                {project.techStack}
                             </div>
                             <hr className="mt-1 border border-rose-100"/>
                             <div className="text-base mt-4">

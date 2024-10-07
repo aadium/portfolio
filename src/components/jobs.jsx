@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import supabase from "../utils/supabase_init.js";
+import Papa from 'papaparse';
 
 function Jobs() {
     const [jobs, setJobs] = useState([]);
-    const [selectedJobId, setSelectedJobId] = useState(1);
+    const [selectedJobId, setSelectedJobId] = useState(null);
 
     const handleJobClick = (id) => {
         setSelectedJobId(id);
@@ -26,22 +26,37 @@ function Jobs() {
         return `${formattedStart} - ${formattedEnd}`;
     }
 
+    const fetchJobsFromCSV = async () => {
+        return new Promise((resolve, reject) => {
+            Papa.parse('/data/jobs_rows.csv', {
+                download: true,
+                header: true,
+                complete: (results) => {
+                    resolve(results.data);
+                },
+                error: (error) => {
+                    reject(error);
+                }
+            });
+        });
+    };
+
     useEffect(() => {
-        const setJobId = async (jobs) => {
-            const jobsLength = jobs.length;
-            setSelectedJobId(jobsLength);
-        }
         const fetchJobs = async () => {
-            const { data, error } = await supabase.from('jobs').select('*');
-            if (error) {
-                console.error(error);
-            } else {
+            try {
+                const data = await fetchJobsFromCSV();
+                console.log('Jobs fetched from CSV:', data);
                 setJobs(data);
-                await setJobId(data);
+                if (data.length > 0) {
+                    setSelectedJobId(data[0].id);
+                }
+            } catch (error) {
+                console.error('Error fetching jobs from CSV:', error);
             }
-        }
+        };
         fetchJobs();
     }, []);
+
     return (
         <div className="overflow-hidden rounded-xl mt-4 w-full md:w-4/6 mx-2">
             <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Work Experiences</h2>
@@ -86,7 +101,7 @@ function Jobs() {
                             </div>
                             <hr className="mt-3 border border-rose-200" />
                             <div className="mt-3 text-base font-semibold">
-                                {job.techStack.join(', ')}
+                                {job.techStack.split(',').join(', ')}
                             </div>
                         </div>
                     </div>
