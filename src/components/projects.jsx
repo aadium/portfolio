@@ -29,9 +29,6 @@ function Projects() {
             try {
                 const data = await fetchProjectsFromCSV();
                 setProjects(data);
-                if (data.length > 0) {
-                    setSelectedJobId(data[0].id);
-                }
             } catch (error) {
                 console.error('Error fetching projects from CSV:', error);
             }
