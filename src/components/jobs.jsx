@@ -45,7 +45,6 @@ function Jobs() {
         const fetchJobs = async () => {
             try {
                 const data = await fetchJobsFromCSV();
-                console.log('Jobs fetched from CSV:', data);
                 setJobs(data);
                 if (data.length > 0) {
                     setSelectedJobId(data[0].id);
