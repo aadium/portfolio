@@ -8,18 +8,6 @@ import myImage from '../assets/myImage.jpg';
 
 function Introduction() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const studyYear = calculateStudyYear("2022-09-01");
-    const yearSuffix = studyYear === 1 ? "st" : studyYear === 2 ? "nd" : studyYear === 3 ? "rd" : "th";
-
-    function calculateStudyYear(startDate) {
-        const start = new Date(startDate);
-        const today = new Date();
-        let yearOfStudy = today.getFullYear() - start.getFullYear();
-        if (yearOfStudy > 5) {
-            yearOfStudy = 5;
-        }
-        return yearOfStudy;
-    }
 
     useEffect(() => {
         const handleResize = () => {
@@ -79,7 +67,7 @@ function Introduction() {
                     <div>
                         <h1 className="font-bold text-gray-800 text-3xl">Hi, I am Aadi Umrani</h1>
                         <h4 className="font-semibold text-lg my-2 text-rose-600 lg:mt-6">
-                            I am a {studyYear}<sup>{yearSuffix}</sup> year Biomedical Engineering student at the University of Waterloo
+                            I am a 3<sup>rd</sup> year Biomedical Engineering student at the University of Waterloo
                         </h4>
                     </div>
                     <p className="text-base my-4 lg:mt-0">
