@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import Papa from 'papaparse';
 
 function Jobs() {
     const [jobs, setJobs] = useState([]);
     const [selectedJobId, setSelectedJobId] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleJobClick = (id) => {
         setSelectedJobId(id);
+        setMenuOpen(false);
     };
 
     function replaceNewlines(description) {
@@ -45,9 +48,10 @@ function Jobs() {
         const fetchJobs = async () => {
             try {
                 const data = await fetchJobsFromCSV();
+                console.log('Jobs fetched from CSV:', data);
                 setJobs(data);
                 if (data.length > 0) {
-                    setSelectedJobId(data[0].id);
+                    setSelectedJobId(data[0].id); // Set the first job's id as the default selected job
                 }
             } catch (error) {
                 console.error('Error fetching jobs from CSV:', error);
@@ -60,25 +64,33 @@ function Jobs() {
         <div className="overflow-hidden rounded-xl mt-4 w-full md:w-4/6 mx-2">
             <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Work Experiences</h2>
             <div className="mt-5 flex bg-gray-800 rounded-lg w-full justify-evenly">
-                {jobs.map((job) => (
-                    (job.id === selectedJobId) ? (
-                        <button
-                            key={job.id}
-                            onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-rose-300 text-center border-b-4 border-rose-500"
-                        >
-                            {job.company}
-                        </button>
-                    ) : (
-                        <button
-                            key={job.id}
-                            onClick={() => handleJobClick(job.id)}
-                            className="p-4 text-base font-bold text-white text-center border-b-4 border-gray-800"
-                        >
-                            {job.company}
-                        </button>
-                    )
-                ))}
+                <div className={`flex-col md:flex-row ${menuOpen ? 'flex' : 'hidden'} md:flex w-full justify-evenly`}>
+                    {jobs.map((job) => (
+                        (job.id === selectedJobId) ? (
+                            <button
+                                key={job.id}
+                                onClick={() => handleJobClick(job.id)}
+                                className="p-4 text-base font-bold text-rose-300 text-center border-b-4 border-rose-500"
+                            >
+                                {job.company}
+                            </button>
+                        ) : (
+                            <button
+                                key={job.id}
+                                onClick={() => handleJobClick(job.id)}
+                                className="p-4 text-base font-bold text-white text-center border-b-4 border-gray-800"
+                            >
+                                {job.company}
+                            </button>
+                        )
+                    ))}
+                </div>
+                <button
+                    className="md:hidden p-4 text-base font-bold text-white text-center border-b-4 border-gray-800 w-full"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    <MenuRoundedIcon />
+                </button>
             </div>
             <div className="mt-8">
                 {jobs.filter(job => job.id === selectedJobId).map((job) => (
@@ -100,7 +112,14 @@ function Jobs() {
                             </div>
                             <hr className="mt-3 border border-rose-200" />
                             <div className="mt-3 text-base font-semibold">
-                                {job.techStack.split(',').join(', ')}
+                                {(() => {
+                                    try {
+                                        return JSON.parse(job.techStack).join(', ');
+                                    } catch (e) {
+                                        console.error('Error parsing techStack:', e);
+                                        return job.techStack;
+                                    }
+                                })()}
                             </div>
                         </div>
                     </div>

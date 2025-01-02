@@ -56,7 +56,7 @@ function Chat() {
                     <input type="email" placeholder="Email" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <textarea placeholder="Message" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
                     <div className='flex flex-row w-full space-x-4'>
-                        <button type="submit" className="w-full text-lg rounded-lg text-white font-semibold bg-rose-700 px-4 py-3 hover:bg-transparent hover:text-rose-700 hover:ring-inset hover:ring-2 ring-rose-700 transition duration-300 flex items-center justify-center" onClick={
+                        <button type="submit" className="w-full text-lg rounded-lg text-white font-semibold bg-rose-600 px-4 py-3 hover:bg-transparent hover:text-rose-600 hover:ring-inset hover:ring-2 ring-rose-600 transition duration-300 flex items-center justify-center" onClick={
                             (e) => {
                                 e.preventDefault();
                                 document.querySelectorAll('input').forEach(input => input.value = '');

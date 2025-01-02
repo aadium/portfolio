@@ -15,7 +15,7 @@ function Header() {
                         src={myHeaderImage}
                         alt="Aadi Umrani"
                     />
-                    <h2 className="cursor-pointer text-rose-300 font-bold text-2xl ml-3" onClick={() => {
+                    <h2 className="cursor-pointer text-white font-bold text-2xl ml-3" onClick={() => {
                         window.location.href = "/";
                     }}>
                         Aadi Umrani
