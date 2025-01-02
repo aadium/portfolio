@@ -10,7 +10,7 @@ const knowledgeBase = [
     { question: "What programming languages do you use?", answer: "I use Python, JavaScript, HTML/CSS, C++, Java, Flutter, and various JavaScript frameworks like React and Node.js." },
     { question: "What technical tools do you work with?", answer: "I have experience with tools like MongoDB, Firebase, AWS, Supabase, MySQL, and InfluxDB." },
     { question: "What kind of projects have you worked on?", answer: "I have worked on projects related to healthcare technology, web development, and computer vision applications." },
-    { question: "What kind of roles have you held in previous internships?", answer: "I have held roles in full-stack development, computer vision engineering, and software development, contributing to various innovative projects." },
+    { question: "What kind of roles have you held in previous internships?", answer: "I have held roles in tutoring, full-stack development, computer vision engineering, and software development, contributing to various innovative projects." },
     { question: "What are your career goals?", answer: "My goal is to contribute to innovative projects that positively impact healthcare, particularly in medical device design, biomanufacturing, and clinical engineering." },
     { question: "What do you enjoy most about your work?", answer: "I enjoy solving problems, working with technology to create impactful solutions, and learning new skills along the way." },
     { question: "How do you approach problem-solving?", answer: "I take a hands-on approach to solving problems, leveraging my technical skills in engineering and software development to find effective solutions." },
@@ -21,6 +21,8 @@ const knowledgeBase = [
 
     // Specific Questions (from all resumes)
     // From BME Resume
+    { question: "What were your responsibilities and achievements as a tutor?", answer: "I facilitated problem-solving sessions, graded assignments and exams, provided feedback to course instructors, and created a supportive learning environment that encouraged student engagement. This hands-on experience solidified my knowledge of C++ and enhanced my ability to explain complex concepts clearly and concisely." },
+    { question: "What courses did you tutor at the university?", answer: "I tutored the BME 121 (Digital Computation) and BME 101L (Visual Communication) courses." },
     { question: "What projects have you worked on related to medical devices?", answer: "I have worked on an EMG-Controlled Steering Wheel,Pulse Grip, and Lung Disease Detection, focusing on improving patient care." },
     { question: "What is the goal of the Pulse Grip project?", answer: "The Pulse Grip project aims to help stroke patients regain finger mobility using EMG sensors." },
     { question: "How did you contribute to the EMG-Controlled Steering Wheel?", answer: "I developed a steering system controlled by EMG signals to improve accessibility for double-arm amputees." },
@@ -37,6 +39,8 @@ const knowledgeBase = [
     { question: "What technologies did you use in the Toyota Innovation Challenge?", answer: "I utilized Python, LiDAR technology, and YOLOv5 for object detection in the autonomous robot project." },
 
     // From Full Stack Development (FSD) Resume
+    { question: "What were your responsibilities and achievements as a tutor?", answer: "I facilitated problem-solving sessions, graded assignments and exams, provided feedback to course instructors, and created a supportive learning environment that encouraged student engagement. This hands-on experience solidified my knowledge of C++ and enhanced my ability to explain complex concepts clearly and concisely." },
+    { question: "What courses did you tutor at the university?", answer: "I tutored the BME 121 (Digital Computation) and BME 101L (Visual Communication) courses." },
     { question: "What projects have you worked on in full stack development?", answer: "I have developed applications like Flash Brain, a flashcard app, and community booking management apps using Flutter." },
     { question: "What was your role at PlayTheory Labs?", answer: "As a Full-stack Developer Intern, I improved data processing times by 50% and developed React JS web applications." },
     { question: "What kind of web applications have you built?", answer: "I have built responsive web applications, including social media apps and interactive flashcard systems." },
