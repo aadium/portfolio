@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { requestGroqAi } from '../utils/groq_init';
 import { ChatBubbleRounded, SearchRounded } from '@mui/icons-material';
+
+const openRouterAPI = import.meta.env.VITE_OPENROUTER_API_KEY;
 
 const knowledgeBase = [
     // Generic Questions
@@ -56,30 +57,47 @@ function Chatbot() {
 
     const handleSend = async () => {
         if (!input.trim()) return;
-
+    
         const userMessage = { sender: 'user', text: input };
         setMessages([...messages, userMessage]);
-
+    
         try {
             // Filter the knowledge base based on the user's input
             const relevantEntries = knowledgeBase.filter(item => 
                 item.question.toLowerCase().includes(input.toLowerCase())
             );
-
+    
             // If no relevant entries found, use the entire knowledge base
             const knowledgeBaseContent = relevantEntries.length > 0 
                 ? relevantEntries.map(item => `${item.question}: ${item.answer}`).join(" ")
                 : knowledgeBase.map(item => `${item.question}: ${item.answer}`).join(" ");
-
-            const response = await requestGroqAi("Answer this question very briefly in first person perspective (assume you are Aadi Umrani): " + input + " " + knowledgeBaseContent);
-
-            const botMessage = { sender: 'bot', text: response };
+    
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${openRouterAPI}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "model": "meta-llama/llama-3.1-8b-instruct:free",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": "Answer this question very briefly in first person perspective (assume you are Aadi Umrani): " + input + " " + knowledgeBaseContent
+                        }
+                    ]
+                })
+            });
+    
+            const data = await response.json();
+            const botMessage = { sender: 'bot', text: data.choices[0].message.content };
             setMessages([...messages, userMessage, botMessage]);
         } catch (error) {
-            console.error('Error fetching response from Groq API:', error);
+            console.error('Error fetching response from OpenRouter API:', error);
             setMessages([...messages, userMessage, { sender: 'bot', text: 'Sorry, I could not fetch the answer.' }]);
+        } finally {
+            setInput('');
         }
-        setInput('');
     };
 
     const toggleModal = () => {
