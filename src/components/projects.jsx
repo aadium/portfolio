@@ -1,44 +1,29 @@
-import {useEffect, useState} from "react";
-import Papa from 'papaparse';
+import { useEffect, useState } from "react";
 
 function Projects() {
     const [projects, setProjects] = useState([]);
 
     function replaceNewlines(description) {
-        const listItems = description.split(/\[newline]/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
-        return `<ul style="dot">${listItems}</ul>`;
+        const listItems = description.split(/\n/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
+        return `<ul>${listItems}</ul>`;
     }
-
-    const fetchProjectsFromCSV = async () => {
-        return new Promise((resolve, reject) => {
-            Papa.parse('/data/projects_rows.csv', {
-                download: true,
-                header: true,
-                complete: (results) => {
-                    resolve(results.data);
-                },
-                error: (error) => {
-                    reject(error);
-                }
-            });
-        });
-    };
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const data = await fetchProjectsFromCSV();
+                const response = await fetch('/data/projects_rows.json');
+                const data = await response.json();
                 setProjects(data);
             } catch (error) {
-                console.error('Error fetching projects from CSV:', error);
+                console.error('Error fetching projects from JSON:', error);
             }
-        }
+        };
         fetchProjects();
     }, []);
+
     return (
         <div className="overflow-hidden rounded-xl mt-4 mx-2">
-            <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My
-                Projects</h2>
+            <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 mb-4 mx-2">
                 {projects.map((project) => (
                     <div key={project.id}
@@ -52,17 +37,20 @@ function Projects() {
                             </div>
                             <hr className="mt-3 border border-rose-100"/>
                             <div className="mt-1 text-base font-semibold">
-                                {project.techStack}
+                                {Array.isArray(project.techStack)
+                                    ? project.techStack.join(', ')
+                                    : project.techStack}
                             </div>
                             <hr className="mt-1 border border-rose-100"/>
                             <div className="text-base mt-4">
-                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}}/>
+                                <p dangerouslySetInnerHTML={{ __html: replaceNewlines(project.description) }} />
                             </div>
                         </div>
                         <button
                             className="mb-5 ml-6 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800 transition duration-150">
-                            <a href={project.link} target="_blank"
-                               rel="noreferrer">View {project.linkType}</a>
+                            <a href={project.link} target="_blank" rel="noreferrer">
+                                View {project.linkType}
+                            </a>
                         </button>
                     </div>
                 ))}

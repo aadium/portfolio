@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import Papa from 'papaparse';
 
 function Jobs() {
     const [jobs, setJobs] = useState([]);
@@ -13,8 +12,8 @@ function Jobs() {
     };
 
     function replaceNewlines(description) {
-        const listItems = description.split(/\[newline]/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
-        return `<ul style="dot">${listItems}</ul>`;
+        const listItems = description.split(/\n/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
+        return `<ul>${listItems}</ul>`;
     }
 
     function formatJobDate(startDate, endDate) {
@@ -29,32 +28,17 @@ function Jobs() {
         return `${formattedStart} - ${formattedEnd}`;
     }
 
-    const fetchJobsFromCSV = async () => {
-        return new Promise((resolve, reject) => {
-            Papa.parse('/data/jobs_rows.csv', {
-                download: true,
-                header: true,
-                complete: (results) => {
-                    resolve(results.data);
-                },
-                error: (error) => {
-                    reject(error);
-                }
-            });
-        });
-    };
-
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const data = await fetchJobsFromCSV();
-                console.log('Jobs fetched from CSV:', data);
+                const response = await fetch('/data/jobs_rows.json');
+                const data = await response.json();
                 setJobs(data);
                 if (data.length > 0) {
-                    setSelectedJobId(data[0].id); // Set the first job's id as the default selected job
+                    setSelectedJobId(data[0].id);
                 }
             } catch (error) {
-                console.error('Error fetching jobs from CSV:', error);
+                console.error('Error fetching jobs from JSON:', error);
             }
         };
         fetchJobs();
@@ -112,14 +96,7 @@ function Jobs() {
                             </div>
                             <hr className="mt-3 border border-rose-200" />
                             <div className="mt-3 text-base font-semibold">
-                                {(() => {
-                                    try {
-                                        return JSON.parse(job.techStack).join(', ');
-                                    } catch (e) {
-                                        console.error('Error parsing techStack:', e);
-                                        return job.techStack;
-                                    }
-                                })()}
+                                {Array.isArray(job.techStack) ? job.techStack.join(', ') : job.techStack}
                             </div>
                         </div>
                     </div>
