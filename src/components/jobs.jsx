@@ -96,7 +96,7 @@ function Jobs() {
                             </div>
                             <hr className="mt-3 border border-rose-200" />
                             <div className="mt-3 text-base font-semibold">
-                                {Array.isArray(job.techStack) ? job.techStack.join(', ') : job.techStack}
+                                {Array.isArray(job.skills) ? job.skills.join(', ') : job.skills}
                             </div>
                         </div>
                     </div>
