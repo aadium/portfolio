@@ -1,74 +1,74 @@
-import {useEffect, useState} from "react";
-import Papa from 'papaparse';
+import { useEffect, useState } from "react";
 
-function Projects() {
+export default function Projects() {
     const [projects, setProjects] = useState([]);
-
-    function replaceNewlines(description) {
-        const listItems = description.split(/\[newline]/g).map(item => `<li class="mb-2">${item.trim()}</li>`).join('');
-        return `<ul style="dot">${listItems}</ul>`;
-    }
-
-    const fetchProjectsFromCSV = async () => {
-        return new Promise((resolve, reject) => {
-            Papa.parse('/data/projects_rows.csv', {
-                download: true,
-                header: true,
-                complete: (results) => {
-                    resolve(results.data);
-                },
-                error: (error) => {
-                    reject(error);
-                }
-            });
-        });
-    };
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const data = await fetchProjectsFromCSV();
+                const response = await fetch('/data/projects_rows.json');
+                const data = await response.json();
                 setProjects(data);
             } catch (error) {
-                console.error('Error fetching projects from CSV:', error);
+                console.error('Error fetching projects from JSON:', error);
             }
-        }
+        };
         fetchProjects();
     }, []);
+
     return (
-        <div className="overflow-hidden rounded-xl mt-4 mx-2">
-            <h2 className="text-3xl text-gray-800 font-bold text-center mt-10 md:mt-4 lg:mt-0">My
-                Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 mb-4 mx-2">
-                {projects.map((project) => (
-                    <div key={project.id}
-                         className="drop-shadow-xl overflow-hidden bg-white rounded-lg flex flex-col justify-between">
-                        <div className="py-6 px-10 text-gray-800 flex flex-col justify-evenly flex-grow">
-                            <div className="flex flex-col md:flex-row justify-between">
-                                <h2 className="text-2xl font-bold">{project.name}</h2>
+        <section className="min-h-screen">
+            <div className="max-w-7xl mx-auto px-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-rose-600 text-center mb-10 tracking-tight">
+                    My Projects
+                </h2>
+                <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    {projects.map((project) => (
+                        <div
+                            key={project.id}
+                            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-200 flex flex-col"
+                        >
+                            <div className="p-6 flex-1 flex flex-col">
+                                <div className="flex items-center justify-between mb-2">
+                                    <h3 className="text-lg md:text-xl font-semibold text-gray-800">{project.name}</h3>
+                                </div>
+                                <span className="inline-block bg-rose-100 text-rose-600 text-xs font-medium w-fit px-3 py-1 rounded-full mt-1 mb-2">
+                                    {project.category}
+                                </span>
+                                <div className="flex flex-wrap gap-2 mt-2 mb-3">
+                                    {Array.isArray(project.techStack)
+                                        ? project.techStack.map((tech, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-md"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))
+                                        : (
+                                            <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-md">
+                                                {project.techStack}
+                                            </span>
+                                        )
+                                    }
+                                </div>
+                                <div className="mt-2 text-sm md:text-base text-gray-700 flex-1">
+                                    <p>{project.description}</p>
+                                </div>
                             </div>
-                            <div className="mt-3 text-base text-rose-600">
-                                {project.category}
-                            </div>
-                            <hr className="mt-3 border border-rose-100"/>
-                            <div className="mt-1 text-base font-semibold">
-                                {project.techStack}
-                            </div>
-                            <hr className="mt-1 border border-rose-100"/>
-                            <div className="text-base mt-4">
-                                <p dangerouslySetInnerHTML={{__html: replaceNewlines(project.description)}}/>
-                            </div>
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <div className="p-3 border-t text-sm font-semibold text-center text-white bg-rose-600 rounded-b-xl hover:bg-rose-700 transition-colors duration-200">
+                                    View {project.linkType}
+                                </div>
+                            </a>
                         </div>
-                        <button
-                            className="mb-5 ml-6 text-base rounded-lg text-white w-fit font-semibold bg-gray-800 px-4 py-2 hover:bg-transparent hover:text-gray-800 hover:ring-inset hover:ring-2 ring-gray-800 transition duration-150">
-                            <a href={project.link} target="_blank"
-                               rel="noreferrer">View {project.linkType}</a>
-                        </button>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }
-
-export default Projects;
