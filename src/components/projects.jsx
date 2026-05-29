@@ -26,7 +26,7 @@ export default function Projects() {
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-200 flex flex-col"
+                            className="bg-white rounded-xl flex flex-col"
                         >
                             <div className="p-6 flex-1 flex flex-col">
                                 <div className="flex items-center justify-between mb-2">

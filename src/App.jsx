@@ -8,30 +8,39 @@ import Chat from "./components/chat.jsx";
 
 export default function App() {
     return (
-        <div>
-            <Header/>
-            <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
-                <Introduction/>
-            </div>
-            <a name="about"/>
-            <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
-                <About/>
-            </div>
-            <a name="jobs"/>
-            <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
-                <Jobs/>
-            </div>
-            <a name="projects"/>
-            <div className="min-h-screen flex text-3xl w-full flex-1 flex-col items-center justify-center">
-                <Projects/>
-            </div>
-            <a name="chat"/>
-            <div className="min-h-screen text-3xl drop-shadow-2xl flex w-full flex-1 items-center justify-center">
-                <Chat/>
-            </div>
-            <div>
-                <Footer/>
-            </div>
+        <div className="bg-gray-100">
+            <Header />
+
+            {/* Hero / Introduction */}
+            <section className="pt-16 flex w-full items-center justify-center px-4 py-16">
+                <Introduction />
+            </section>
+
+            {/* About */}
+            <a name="about" />
+            <section className="flex w-full items-center justify-center px-4 py-16">
+                <About />
+            </section>
+
+            {/* Experience */}
+            <a name="jobs" />
+            <section className="flex w-full items-center justify-center px-4 py-16">
+                <Jobs />
+            </section>
+
+            {/* Projects */}
+            <a name="projects" />
+            <section className="flex w-full flex-col items-center justify-center px-4 py-16">
+                <Projects />
+            </section>
+
+            {/* Contact */}
+            <a name="chat" />
+            <section className="flex w-full items-center justify-center px-4 py-16">
+                <Chat />
+            </section>
+            
+            <Footer />
         </div>
-    )
+    );
 }
