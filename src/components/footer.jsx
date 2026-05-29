@@ -9,9 +9,8 @@ import XIcon from '@mui/icons-material/X';
 function Footer() {
     return (
         <footer
-            className="bg-gray-800 text-white text-center py-4 flex flex-col md:flex-row justify-between items-center px-10">
-            <p className="text-base">Made with ❤️ by <span className='text-red-500 font-semibold'>Aadi Umrani</span></p>
-            <div className="flex flex-row bg-gray-800 justify-evenly w-full mt-4 md:w-1/2 md:mt-0 lg:w-1/4">
+            className="bg-gray-800 text-white text-center py-3 flex flex-col justify-between items-center px-10">
+            <div className="flex flex-row bg-gray-800 justify-evenly w-full">
                 <EmailIcon className="text-white hover:cursor-pointer hover:text-rose-500" onClick={() => {
                     window.open("mailto:aadi.fall22@gmail.com", "_blank");
                 }} />

@@ -45,7 +45,7 @@ function Jobs() {
     }, []);
 
     return (
-        <div className="overflow-hidden rounded-xl w-full md:w-4/6 mx-2">
+        <div className="w-full max-w-7xl mx-auto px-4 py-4 box-border overflow-hidden bg-white rounded-xl shadow-lg">
             <h2 className="text-3xl text-gray-800 font-bold text-center mb-6">My Work Experiences</h2>
 
             {/* Tab bar */}
@@ -77,7 +77,7 @@ function Jobs() {
             {jobs.filter(job => job.id === selectedJobId).map((job) => (
                 <div
                     key={job.id}
-                    className="overflow-hidden bg-white rounded-lg mt-4 shadow-md"
+                    className=" rounded-lg mt-4"
                 >
                     <div className="py-6 px-8 text-gray-800 flex flex-col gap-4">
                         <div className="flex flex-col md:flex-row w-full justify-between gap-1">
